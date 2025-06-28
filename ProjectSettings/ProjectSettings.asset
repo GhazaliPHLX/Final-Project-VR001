@@ -161,7 +161,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.Final-Project-VR001
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -741,7 +742,11 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: STEAMAUDIO_ENABLED
+    Standalone: STEAMAUDIO_ENABLED
+    WebGL: STEAMAUDIO_ENABLED
+    iPhone: STEAMAUDIO_ENABLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -848,7 +853,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 888ba61b-95f0-4f4b-b542-94f9f9aa52c2
   framebufferDepthMemorylessMode: 0
