@@ -12,4 +12,13 @@ public class PlayerCollision : MonoBehaviour
             responder.Trigger();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IColliderTrigger trigger = other.GetComponent<IColliderTrigger>();
+        if (trigger != null)
+        {
+            trigger.ColliderTrigger();
+        }
+    }
 }

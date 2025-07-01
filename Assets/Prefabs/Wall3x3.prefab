@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 237437773306399589}
   - component: {fileID: 4572990356397517945}
   - component: {fileID: 4984328046830330640}
+  - component: {fileID: 5620895637441174702}
   m_Layer: 0
   m_Name: Wall3x3
   m_TagString: Untagged
@@ -368,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3374aa5133767aa4687c8b97fce9b3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPower: 1
-  rightPower: 0.8
+  leftPower: 0.4
+  rightPower: 0.4
 --- !u!82 &4572990356397517945
 AudioSource:
   m_ObjectHideFlags: 0
@@ -476,5 +477,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3509a624cbce0d4db2e1700d51bd5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5620895637441174702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167596447934312330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c061e38d815b78f45bbdd6ddc460d7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
