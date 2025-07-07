@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3374aa5133767aa4687c8b97fce9b3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPower: 1
-  rightPower: 0.8
+  leftPower: 0.4
+  rightPower: 0.4
 --- !u!82 &4479914798900054662
 AudioSource:
   m_ObjectHideFlags: 0
