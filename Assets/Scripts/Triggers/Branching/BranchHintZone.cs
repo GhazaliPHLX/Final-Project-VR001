@@ -7,7 +7,7 @@ public class BranchHintZone : MonoBehaviour
 
     public BranchGroup group;
 
-    private bool playerInside = false;
+    //private bool playerInside = false;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class BranchHintZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = true;
+            //playerInside = true;
             group.OnBranchEntered(this);
         }
     }
@@ -30,7 +30,7 @@ public class BranchHintZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = false;
+           // playerInside = false;
         }
     }
 
