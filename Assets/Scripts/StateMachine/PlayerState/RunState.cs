@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using VR001;
 
-public class RunningState : MonoBehaviour, IState
+public class RunningState : IState
 {
-    private StateManager stateManager;
-    public RunningState(StateManager manager)
-    {
-        this.stateManager = manager;
-    }
+    private readonly StateManager manager;
+
+    public RunningState(StateManager m) => manager = m;
+
     public void OnEnter()
     {
+        Debug.Log("Enter Running");
+        manager.controller.moveSpeed = 6f;
     }
+
+    public void OnUpdate() { }
 
     public void OnExit()
     {
+        Debug.Log("Exit Running");
     }
-
-    public void OnUpdate()
-    {
-    }
-
 }
+
