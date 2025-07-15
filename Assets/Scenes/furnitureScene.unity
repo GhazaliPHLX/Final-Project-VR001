@@ -15613,6 +15613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
+  modelTransform: {fileID: 0}
+  rotationSpeed: 10
+  cameraTransform: {fileID: 0}
   orientation: {fileID: 1958768407}
   moveInput: {fileID: -5680913776260467967, guid: 03d0a0d80466f334f9e31a670b13fd7b, type: 3}
 --- !u!4 &253687430
@@ -113413,6 +113416,79 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1653138193}
   m_SourcePrefab: {fileID: 100100000, guid: c8441473d53896b43baf4a98825c52da, type: 3}
+--- !u!1001 &2017062215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.147976
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.182024
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -69.008766
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
+      propertyPath: m_Name
+      value: Parasite idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6c8eeac0ce29ca549b6e862b7e9e7419, type: 3}
 --- !u!43 &2017200958
 Mesh:
   m_ObjectHideFlags: 0
@@ -121239,3 +121315,4 @@ SceneRoots:
   - {fileID: 1575257368}
   - {fileID: 1552731369}
   - {fileID: 1913596363}
+  - {fileID: 2017062215}
