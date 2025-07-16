@@ -21,4 +21,13 @@ public class PlayerCollision : MonoBehaviour
             trigger.ColliderTrigger();
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IColliderExit trigger = other.GetComponent<IColliderExit>();
+        if (trigger != null)
+        {
+            trigger.ColliderExit();
+        }
+    }
 }
