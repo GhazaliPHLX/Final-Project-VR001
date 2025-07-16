@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState currentState = GameState.Playing; // Mengubah state awal menjadi Playing
+    public GameState currentState = GameState.Playing; 
 
-    public GameObject pauseMenuUI; // Hanya menyisakan pauseMenuUI
+    public GameObject pauseMenuUI; 
 
     public PlayerInput playerInput;
 
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SwitchState(GameState.Playing); // Langsung mulai game
+        SwitchState(GameState.Playing); 
     }
 
     private void Update()
@@ -93,7 +93,5 @@ public class GameManager : MonoBehaviour
         SwitchState(GameState.Playing);
     }
 
-    // Fungsi StartGame, ToMainMenu, dan GameOver dihapus karena tidak ada MainMenu/GameOver
-    // Jika Anda ingin kembali ke scene awal, Anda bisa menggunakan SceneManager.LoadScene di tempat lain,
-    // atau membuat fungsi terpisah yang memuat ulang scene.
+    
 }
