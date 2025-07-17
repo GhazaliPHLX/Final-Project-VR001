@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -7,90 +5,78 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState currentState = GameState.Playing; 
 
-    public GameObject pauseMenuUI; 
+    public enum GameState { Playing, Paused, MainMenu }
+    public GameState currentState = GameState.MainMenu;
 
-    public PlayerInput playerInput;
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject mainMenuUI;
+    [SerializeField] private GameObject HUD;
 
-    public enum GameState
-    {
-        Playing,
-        Paused
-    }
+
+    [SerializeField] private InputActionReference pauseAction;
+
+    [SerializeField] private string gameSceneName = "MainScene"; // Assign nama scene gameplay kamu di Inspector
 
     private void Awake()
     {
         if (Instance == null)
-        {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Opsional: Agar GameManager tidak hancur saat scene berganti
-        }
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        currentState = GameState.MainMenu;
+
+        mainMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+
+        pauseAction.action.performed += ctx =>
+        {
+            if (currentState == GameState.Playing)
+                ShowPauseUI();
+        };
     }
 
-    private void Start()
+    private void OnEnable() => pauseAction.action.Enable();
+    private void OnDisable() => pauseAction.action.Disable();
+
+    public void ShowPauseUI()
     {
-        SwitchState(GameState.Playing); 
-    }
-
-    private void Update()
-    {
-        if (currentState == GameState.Playing)
-        {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current?.startButton.wasPressedThisFrame == true)
-            {
-                PauseGame();
-            }
-        }
-        else if (currentState == GameState.Paused)
-        {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current?.startButton.wasPressedThisFrame == true)
-            {
-                ResumeGame();
-            }
-        }
-    }
-
-    public void SwitchState(GameState newState)
-    {
-        currentState = newState;
-
-        // Hanya mengelola tampilan pauseMenuUI
-        if (pauseMenuUI != null)
-        {
-            pauseMenuUI.SetActive(newState == GameState.Paused);
-        }
-
-        // Mengatur Time.timeScale hanya untuk Playing dan Paused
-        Time.timeScale = (newState == GameState.Paused) ? 0f : 1f;
-
-        // Mengatur PlayerInput action map
-        if (playerInput != null)
-        {
-            if (newState == GameState.Paused)
-            {
-                playerInput.SwitchCurrentActionMap("UI");
-                Debug.Log("Switched to UI map: " + playerInput.currentActionMap.name);
-            }
-            else if (newState == GameState.Playing)
-            {
-                playerInput.SwitchCurrentActionMap("Player");
-            }
-        }
-    }
-
-    public void PauseGame()
-    {
-        SwitchState(GameState.Paused);
+        pauseMenuUI.SetActive(true);
+        HUD.SetActive(false);
+        currentState = GameState.Paused;
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
 
     public void ResumeGame()
     {
-        SwitchState(GameState.Playing);
+        pauseMenuUI.SetActive(false);
+        HUD.SetActive(true);
+        currentState = GameState.Playing;
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
+    }
+    public void ReturnToMainMenu()
+    {
+        AudioListener.pause = false;
+        if (!string.IsNullOrEmpty(gameSceneName))
+            SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void PlayGame()
+    {
+        HUD.SetActive(true);
+        mainMenuUI.SetActive(false);
+        currentState = GameState.Playing;
+
+        // Kalau kamu mau load scene baru (misal dari menu ke gameplay), pakai ini:
+        
     }
 
     
