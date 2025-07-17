@@ -21,16 +21,18 @@ public class GhostAudio : MonoBehaviour
         patrolSource.clip = patrolClip;
         patrolSource.loop = true;
         patrolSource.spatialBlend = 1.0f;
-        patrolSource.maxDistance = 30.0f;
+        patrolSource.maxDistance = 5.0f;
         patrolSource.minDistance = 1.0f;
         patrolSource.outputAudioMixerGroup = ghostMixerGroup;
+        patrolSource.dopplerLevel = 1.0f;
 
         chaseSource.clip = chaseClip;
         chaseSource.loop = true;
         chaseSource.spatialBlend = 1.0f;
-        chaseSource.maxDistance = 30.0f;
+        chaseSource.maxDistance = 5.0f;
         chaseSource.minDistance = 1.0f;
         chaseSource.outputAudioMixerGroup = ghostMixerGroup;
+        chaseSource.dopplerLevel = 1.0f;
 
     }
 
@@ -38,6 +40,7 @@ public class GhostAudio : MonoBehaviour
     {
         if (!patrolSource.isPlaying)
             patrolSource.Play();
+        Debug.Log("PatrolAudioPlay");
     }
 
     public void StopPatrol()
@@ -50,6 +53,8 @@ public class GhostAudio : MonoBehaviour
     {
         if (!chaseSource.isPlaying)
             chaseSource.Play();
+        Debug.Log("ChaseAudioPlay");
+
     }
 
     public void StopChase()

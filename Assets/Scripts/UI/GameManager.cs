@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     }
     public void ReturnToMainMenu()
     {
+        AudioListener.pause = false;
         if (!string.IsNullOrEmpty(gameSceneName))
             SceneManager.LoadScene(gameSceneName);
     }

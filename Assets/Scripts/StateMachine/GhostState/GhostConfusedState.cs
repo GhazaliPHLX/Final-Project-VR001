@@ -3,25 +3,23 @@ using UnityEngine;
 public class GhostConfusedState : IState
 {
     private GhostStateManager ghost;
-    private float timer = 0f;
+    private float timer;
     private float waitTime = 3f;
-    private GhostAudio ghostAudio;
 
-    public GhostConfusedState(GhostStateManager g)
+    public GhostConfusedState(GhostStateManager ghost)
     {
-        ghost = g;
-        ghostAudio = ghost.GetComponent<GhostAudio>();
+        this.ghost = ghost;
     }
 
     public void OnEnter()
     {
-        Debug.Log("Enter CONFUSED");
         ghost.ghostAnimator.SetBool("isChasing", false);
         ghost.ghostAnimator.SetBool("isPatrol", false);
-        ghostAudio.StopPatrol();
-        ghostAudio.StopChase();
         ghost.agent.ResetPath();
         timer = 0f;
+
+        ghost.ghostAudio.StopPatrol();
+        ghost.ghostAudio.StopChase();
     }
 
     public void OnUpdate()
@@ -33,8 +31,5 @@ public class GhostConfusedState : IState
         }
     }
 
-    public void OnExit()
-    {
-        Debug.Log("Exit CONFUSED");
-    }
+    public void OnExit() { }
 }

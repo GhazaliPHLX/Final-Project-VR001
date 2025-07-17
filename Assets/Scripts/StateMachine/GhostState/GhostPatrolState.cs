@@ -3,23 +3,20 @@ using UnityEngine;
 public class GhostPatrolState : IState
 {
     private GhostStateManager ghost;
-    private int currentWaypoint = 0;
-    private GhostAudio ghostAudio;
 
-    public GhostPatrolState(GhostStateManager g)
+    public GhostPatrolState(GhostStateManager ghost)
     {
-        ghost = g;
-        ghostAudio = ghost.GetComponent<GhostAudio>();
-
+        this.ghost = ghost;
     }
 
     public void OnEnter()
     {
-        Debug.Log("Enter PATROL");
         ghost.ghostAnimator.SetBool("isChasing", false);
         ghost.ghostAnimator.SetBool("isPatrol", true);
-        ghostAudio.PlayPatrol();
         MoveToNextPoint();
+
+        ghost.ghostAudio.StopChase();
+        ghost.ghostAudio.PlayPatrol();
     }
 
     public void OnUpdate()
@@ -32,15 +29,14 @@ public class GhostPatrolState : IState
 
     public void OnExit()
     {
-        Debug.Log("Exit PATROL");
         ghost.ghostAnimator.SetBool("isPatrol", false);
     }
 
     private void MoveToNextPoint()
     {
-        if (ghost.patrolPoints == null || ghost.patrolPoints.Count == 0) return;
+        if (ghost.patrolPoints.Count == 0) return;
 
-        ghost.agent.SetDestination(ghost.patrolPoints[currentWaypoint].position);
-        currentWaypoint = (currentWaypoint + 1) % ghost.patrolPoints.Count;
+        ghost.agent.destination = ghost.patrolPoints[ghost.currentPatrolIndex].position;
+        ghost.currentPatrolIndex = (ghost.currentPatrolIndex + 1) % ghost.patrolPoints.Count;
     }
 }

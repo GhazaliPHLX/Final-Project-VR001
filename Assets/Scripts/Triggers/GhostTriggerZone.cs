@@ -34,14 +34,15 @@ public class GhostTriggerZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.CompareTag("Player") || other.CompareTag("Hide"))
+        {
+            uiThinRed.SetActive(false);
+            uiThickRed.SetActive(false);
 
-        uiThinRed.SetActive(false);
-        uiThickRed.SetActive(false);
-
-        // Hentikan pengejaran
-        ghost.player = null;
-        ghost.agent.ResetPath(); // supaya ghost bener-bener berhenti
-        ghost.SetState(ghost.confusedState);
+            // Hentikan pengejaran
+            ghost.player = null;
+            ghost.agent.ResetPath();
+            ghost.SetState(ghost.confusedState);
+        }
     }
 }
