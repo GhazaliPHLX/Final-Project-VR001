@@ -4,10 +4,13 @@ public class GhostPatrolState : IState
 {
     private GhostStateManager ghost;
     private int currentWaypoint = 0;
+    private GhostAudio ghostAudio;
 
     public GhostPatrolState(GhostStateManager g)
     {
         ghost = g;
+        ghostAudio = ghost.GetComponent<GhostAudio>();
+
     }
 
     public void OnEnter()
@@ -15,6 +18,7 @@ public class GhostPatrolState : IState
         Debug.Log("Enter PATROL");
         ghost.ghostAnimator.SetBool("isChasing", false);
         ghost.ghostAnimator.SetBool("isPatrol", true);
+        ghostAudio.PlayPatrol();
         MoveToNextPoint();
     }
 

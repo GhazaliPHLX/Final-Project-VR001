@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         HUD.SetActive(false);
         currentState = GameState.Paused;
         Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
 
     public void ResumeGame()
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
         HUD.SetActive(true);
         currentState = GameState.Playing;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
+
     }
     public void ReturnToMainMenu()
     {

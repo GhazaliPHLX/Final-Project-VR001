@@ -5,10 +5,12 @@ public class GhostConfusedState : IState
     private GhostStateManager ghost;
     private float timer = 0f;
     private float waitTime = 3f;
+    private GhostAudio ghostAudio;
 
     public GhostConfusedState(GhostStateManager g)
     {
         ghost = g;
+        ghostAudio = ghost.GetComponent<GhostAudio>();
     }
 
     public void OnEnter()
@@ -16,6 +18,8 @@ public class GhostConfusedState : IState
         Debug.Log("Enter CONFUSED");
         ghost.ghostAnimator.SetBool("isChasing", false);
         ghost.ghostAnimator.SetBool("isPatrol", false);
+        ghostAudio.StopPatrol();
+        ghostAudio.StopChase();
         ghost.agent.ResetPath();
         timer = 0f;
     }

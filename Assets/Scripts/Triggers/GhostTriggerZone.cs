@@ -13,6 +13,9 @@ public class GhostTriggerZone : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        // Set target player saat masuk trigger
+        ghost.player = other.transform;
+
         switch (zoneType)
         {
             case ZoneType.Outer:
@@ -24,7 +27,7 @@ public class GhostTriggerZone : MonoBehaviour
             case ZoneType.Inner:
                 uiThinRed.SetActive(false);
                 uiThickRed.SetActive(true);
-                ghost.SetState(ghost.chaseState); // tetap chasing
+                ghost.SetState(ghost.chaseState);
                 break;
         }
     }
@@ -33,10 +36,12 @@ public class GhostTriggerZone : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        // Jika player keluar dari zone terakhir (baik outer maupun inner),
-        // ghost masuk state bingung (confused), yang nanti auto balik ke patrol
         uiThinRed.SetActive(false);
         uiThickRed.SetActive(false);
+
+        // Hentikan pengejaran
+        ghost.player = null;
+        ghost.agent.ResetPath(); // supaya ghost bener-bener berhenti
         ghost.SetState(ghost.confusedState);
     }
 }
