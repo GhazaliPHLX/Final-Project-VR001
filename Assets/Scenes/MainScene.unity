@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_text: Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6fa0d9e50b9d0042be7fa7bb0f35ed9, type: 2}
-  m_sharedMaterial: {fileID: 7347081000113923759, guid: 3db031d7b0deda6438e2fe050e10e800, type: 2}
+  m_sharedMaterial: {fileID: -2899661492417510123, guid: a6fa0d9e50b9d0042be7fa7bb0f35ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5143,7 +5143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1337799142}
   branchHints:
@@ -6269,7 +6270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1378854611}
   branchHints:
@@ -10993,6 +10995,7 @@ MonoBehaviour:
   player: {fileID: 1082355083}
   chaseRange: 10
   losePlayerDelay: 3
+  confusedDuration: 3
   ghostAnimator: {fileID: 1689475106}
   patrolPoints:
   - {fileID: 206630947}
@@ -11014,6 +11017,7 @@ MonoBehaviour:
   - {fileID: 1919686565}
   - {fileID: 1669653309}
   - {fileID: 2084875258}
+  isPlayerVisible: 1
 --- !u!136 &554532640
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11065,7 +11069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolClip: {fileID: 8300000, guid: bde37e55615542645bf3601ad233f55c, type: 3}
   chaseClip: {fileID: 8300000, guid: f68ce14d5b11fa5468b5592f90d08416, type: 3}
-  ghostMixerGroup: {fileID: 0}
+  ghostMixerGroup: {fileID: -6687095375525716597, guid: 11a47aa565ce9074ead97df502a62e4c, type: 2}
 --- !u!1001 &556807444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17674,7 +17678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 934136144}
   branchHints: []
@@ -17978,7 +17983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1686644076}
   branchHints: []
@@ -18345,7 +18351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1346102871}
   branchHints:
@@ -19145,7 +19152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1950063539}
   branchHints:
@@ -22694,7 +22702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 946002724}
   branchHints: []
@@ -23530,7 +23539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactButtons:
-  - {fileID: 1428416072}
   - {fileID: 1224608563}
   Nexthints:
   - {fileID: 704229815}
@@ -24668,8 +24676,9 @@ GameObject:
   - component: {fileID: 1224608567}
   - component: {fileID: 1224608566}
   - component: {fileID: 1224608565}
+  - component: {fileID: 1224608571}
   m_Layer: 5
-  m_Name: HidetButton
+  m_Name: HideButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24719,7 +24728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f0cfe341180a0448291b651e9c7024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 1428416072}
+  firstSelected: {fileID: 1224608563}
 --- !u!114 &1224608567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24778,7 +24787,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1224608569}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224608571}
+        m_TargetAssemblyTypeName: HideScript, Assembly-CSharp
+        m_MethodName: ToggleHide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1224608569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24817,6 +24838,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224608563}
   m_CullTransparentMesh: 1
+--- !u!114 &1224608571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224608563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c077694a9395f14591501ac2e02a1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1082355078}
+  btnText: {fileID: 1731213707}
 --- !u!1 &1224627853
 GameObject:
   m_ObjectHideFlags: 0
@@ -26134,7 +26169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1886693107}
   branchHints: []
@@ -27512,7 +27548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1281413177}
   branchHints: []
@@ -27894,7 +27931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints: []
   branchHints: []
 --- !u!135 &1346102874
@@ -27928,7 +27966,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1890095580234909265, guid: 11a47aa565ce9074ead97df502a62e4c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 59b9f73a83f75754194acc3b673a7850, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 71246434276c95b4da6f75aa3c114ca3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
@@ -29476,7 +29514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1886693107}
   branchHints: []
@@ -30732,7 +30771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 529, y: -67.1882}
+  m_AnchoredPosition: {x: 529, y: -152}
   m_SizeDelta: {x: 240, y: 35.2451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428416074
@@ -37221,7 +37260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 317197600}
   branchHints: []
@@ -37660,7 +37700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1378854611}
   branchHints:
@@ -38450,7 +38491,7 @@ MonoBehaviour:
   m_text: Hide
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a6fa0d9e50b9d0042be7fa7bb0f35ed9, type: 2}
-  m_sharedMaterial: {fileID: 7347081000113923759, guid: 3db031d7b0deda6438e2fe050e10e800, type: 2}
+  m_sharedMaterial: {fileID: -2899661492417510123, guid: a6fa0d9e50b9d0042be7fa7bb0f35ed9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41367,7 +41408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1148114427}
   branchHints:
@@ -41717,7 +41759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 816705650}
   branchHints: []
@@ -44132,7 +44175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1378854611}
   branchHints: []
@@ -46306,7 +46350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dd0aed4f14a948bdf30513b050fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButtons: []
+  interactButtons:
+  - {fileID: 1224608563}
   Nexthints:
   - {fileID: 1378854611}
   branchHints:
