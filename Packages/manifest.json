@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.chaser324.unity-wireframe": "https://github.com/insominx/unity-wireframe.git?path=/Packages/unity-wireframe",
     "com.unity.ai.navigation": "1.1.7",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.development": "1.0.1",
